@@ -1,0 +1,24 @@
+---
+- hosts: localhost
+  connection: local
+  become: false
+  gather_facts: false
+
+  tasks:
+  - name: parse csv and make vars file
+    script: /Users/roys/ansible/csv-to-yaml/csv-to-yaml.py example.csv
+    args:
+      executable: python3
+    delegate_to: localhost
+
+- name: display vars
+  hosts: localhost
+  gather_facts: false
+
+  vars_files:
+    - example.csv.yml
+
+  tasks:
+  - name: display vars
+    debug: var=csv_data
+    delegate_to: localhost
