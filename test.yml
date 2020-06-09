@@ -1,0 +1,14 @@
+- hosts: localhost
+  tasks:
+    - read_csv:
+        path: example.csv
+        key: name
+      register: variables
+    - debug:
+        msg: "{{ item.key }},
+              {{ item.value.description }},
+              {{ item.value.vlanid }},
+              {{ item.value.state }},
+              {{ item.value.mtu }},
+              {{ item.value.inet }}"
+      loop: "{{ variables.dict|dict2items }}"
