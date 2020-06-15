@@ -1,0 +1,22 @@
+---
+- name: CSV
+  hosts: localhost
+  gather_facts: false
+
+  vars:
+    csv_file: example.csv
+
+  tasks:
+  - name: get groups
+    read_csv:
+      path: "{{ csv_file }}"
+      key: name
+      unique: no
+    register: routers
+    delegate_to: localhost
+
+  - debug:
+      msg: "{{ routers }}"
+
+  - debug:
+      msg: 'Device name is {{ routers.dict.dev1 }} and discription {{ routers.dict.dev1}} and VLAN-ID {{ routers.dict.dev1 }}'
