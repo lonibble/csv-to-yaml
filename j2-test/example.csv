@@ -1,0 +1,4 @@
+name,description,vlanid,state,mtu,inet
+R1,R2D2,1,up,1500,192.168.1.1
+R2,C3PO,2,up,1500,192.168.1.2
+R3,BB8,3,up,9000,192.168.1.3

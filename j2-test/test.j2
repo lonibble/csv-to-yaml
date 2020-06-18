@@ -1,0 +1,14 @@
+---
+devices:
+{% for item in csvfile.split("\n") %}
+{%   if loop.index != 1 %}
+{%     set list = item.split(",") %}
+  - host: 
+      hostname: '{{ list[0]|trim() }}'
+      description: '{{ list[1]|trim() }}'
+      vlanid: '{{ list[2]|trim() }}'
+      state: '{{ list[3]|trim() }}'
+      mtu: '{{ list[4]|trim() }}'
+      inet: '{{ list[5]|trim() }}'
+{%   endif %}
+{% endfor %}

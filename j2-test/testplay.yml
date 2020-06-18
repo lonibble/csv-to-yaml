@@ -1,0 +1,14 @@
+---
+- hosts: localhost
+  connection: local
+  gather_facts: false
+  become: false
+  vars:
+    csvfile: "{{ lookup('file', 'example.csv') }}"
+
+  tasks:
+    - name: Parse CSV To YAML
+      template:
+        src: "./test.j2"
+        dest: "./inv.yml"
+      run_once: true
