@@ -10,5 +10,5 @@
     - name: Parse CSV To YAML
       template:
         src: "./test.j2"
-        dest: "./inv.yml"
+        dest: "./vars.yml"
       run_once: true

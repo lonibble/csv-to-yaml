@@ -1,0 +1,23 @@
+---
+devices:
+  - host: 
+      hostname: 'R1'
+      description: 'R2D2'
+      vlanid: '1'
+      state: 'up'
+      mtu: '1500'
+      inet: '192.168.1.1'
+  - host: 
+      hostname: 'R2'
+      description: 'C3PO'
+      vlanid: '2'
+      state: 'up'
+      mtu: '1500'
+      inet: '192.168.1.2'
+  - host: 
+      hostname: 'R3'
+      description: 'BB8'
+      vlanid: '3'
+      state: 'up'
+      mtu: '9000'
+      inet: '192.168.1.3'
